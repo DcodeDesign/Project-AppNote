@@ -1,0 +1,82 @@
+/*
+    @import "../../../assets/css/common/theme.css";
+*/
+
+/*******************
+    content-notes
+********************/
+.content-notes {
+    width: 100%;
+    background-color: var(--color-dark);
+    border-left: 1px dashed var(--color-dark-m);
+}
+
+.note-nav{
+    background-color: var(--color-dark-m);
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+    border-bottom: 1px solid black;
+}
+
+.note-title {
+    padding:15px;
+    width:100%;
+    background-color: var(--color-dark);
+    border:none;
+    border-bottom:1px dashed var(--color-dark-m);
+    outline: none;
+    color:white;
+}
+.note-text {
+    box-sizing: border-box;
+    padding:15px;
+    width:100%;
+    background-color: var(--color-dark);
+    height: calc(100vh - 202px) !important;
+    border:none;
+    outline: none;
+    color:white;
+}
+
+.note-btn {
+    width:100%;
+    height:42px;
+    border:none;
+}
+
+.note-preview{
+    overflow: auto;
+    height:calc(100vh - 100px);
+}
+
+.note-preview > *{
+    color:white;
+}
+
+/* show error validation form */
+.is-required ::placeholder {
+    color: red;
+}
+
+.is-required select{
+    border-bottom:1px solid red;
+}
+
+.select-cat{
+    padding: 17px ;
+    background-color: var(--color-dark);
+    border: none;
+    border-bottom: 1px dashed var(--color-dark-m);
+    border-left: 1px dashed var(--color-dark-m);
+    outline: none;
+    color: white;
+}
+
+
+/*************
+  note-empty
+*************/
+.note-empty {
+    height:calc(100vh - 58px);
+}

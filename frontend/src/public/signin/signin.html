@@ -1,0 +1,53 @@
+<div class=" bg-login">
+    <div class="d-flex justify-content-center align-items-center" style="height:calc(100vh - 60px);">
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 19rem;margin:0 auto;border:0;">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-center text-muted">AppNote</h6>
+                <h2 class="card-title mb-3 text-center text-primary">S'identifier </h2>
+                <form name="form" ng-submit="form.$valid && signin()" novalidate>
+
+                    <div class="mb-3" ng-class="{ '': form.$submitted && form.username.$invalid }">
+                        <!--<label for="username" class="form-label">Username</label>-->
+                        <input id="username"
+                               placeholder="Email"
+                               type="text"
+                               name="email"
+                               class="form-control border border-light border-bottom shadow-sm p-3 bg-body rounded "
+                               ng-model="email" required/>
+                        <div ng-messages="form.$submitted && form.email.$error" class="help-block">
+                            <div ng-message="required">Username is required</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3" ng-class="{ '': form.$submitted && form.password.$invalid }">
+                        <!-- <label for="password" class="form-label">Password</label>-->
+                        <input id="password"
+                               placeholder="Mot de passe"
+                               type="password"
+                               name="password"
+                               class="form-control border border-light shadow-sm p-3  bg-body rounded"
+                               ng-model="password" required/>
+                        <div ng-messages="form.$submitted && form.password.$error" class="help-block">
+                            <div ng-message="required">Password is required</div>
+                        </div>
+                    </div>
+
+                    <button ng-disabled="loading" class="btn btn-primary shadow p-2 rounded w-full">
+                        <span ng-if="!loading">connexion</span>
+                        <div ng-if="loading" class="spinner-border spinner-border-sm text-light" role="status">
+                            <span class="visually-hidden"></span>
+                        </div>
+                    </button>
+
+                    <div ng-if="error" class="alert alert-danger mt-3">{{error}}</div>
+
+                    <div class="text-center mt-3">
+                        <a href="#!/signup">S'inscrire</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

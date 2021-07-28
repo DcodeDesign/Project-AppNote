@@ -1,0 +1,26 @@
+version: "3"
+services:
+  express:
+    container_name: express
+    restart: always
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+  angularjs:
+    container_name: angularjs
+    restart: always
+    build: ./frontend
+    ports:
+      - "4201:8080"
+    depends_on:
+      - express
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"

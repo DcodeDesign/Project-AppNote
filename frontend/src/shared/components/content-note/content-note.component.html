@@ -1,0 +1,81 @@
+<div ng-show="activeViewNote" >
+    <ul class="note-nav nav shadow-lg" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-white active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Editer <i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-white" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">prévisualisation <i class="fa fa-eye" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-white" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">importer <i class="fa fa-cloud-download" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <form name="form" ng-submit="form.$valid && createNote()" novalidate>
+                <div class="d-flex w-full">
+                    <div class="w-full" ng-class="{ 'is-required': form.$submitted && form.titre.$invalid }">
+                        <input id="titre"
+                               placeholder="Titre"
+                               type="text"
+                               name="titre"
+                               class="note-title"
+                               ng-model="titre"
+                               autocomplete="off"
+                               required/>
+                        <!-- <div ng-messages="form.$submitted && form.titre.$error" class="help-block">
+                             <div ng-message="required">Titre is required</div>
+                         </div>-->
+                    </div>
+
+                    <div class="w-full" ng-class="{ 'is-required': form.$submitted && form.cat.$invalid }">
+                        <select class="select-cat w-full text-white-50" name="cat" ng-model="cat_id" required>
+                            <option ng-value="" ng-selected="!cat_id"> Selectionner une categorie {{cat_id}}</option>
+                            <option ng-repeat="cat in noteCategories"
+                                    ng-value="cat._id"
+                                    ng-selected="selectedCat(cat._id)"
+                            >
+                                {{cat.titre}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div ng-class="{ 'is-required': form.$submitted && form.note.$invalid }">
+                <textarea id="note"
+                          rows="3"
+                          type="text"
+                          maxlength="102056"
+                          placeholder="Description de la note..."
+                          name="note"
+                          ng-keyup="change($event); $event.preventDefault()"
+                          class="note-text"
+                          ng-keydown="keyTab($event)"
+                          ng-model="note" required></textarea>
+                    <!-- key press count: {{note.length}}-->
+                    <!-- <div ng-messages="form.$submitted && form.note.$error" class="help-block">
+                         <div ng-message="required">Note is required</div>
+                     </div>-->
+                </div>
+
+                <button ng-disabled="loadingNotes" class="note-btn shadow-lg bg-secondary text-white">
+                    <span ng-if="!loadingNotes">Enregister <i class="fa fa-floppy-o" aria-hidden="true"></i></span>
+                    <div ng-if="loadingNotes" class="spinner-border spinner-border-sm text-light" role="status">
+                        <span class="visually-hidden"></span>
+                    </div>
+                </button>
+
+                <div ng-if="errorNotes" class="alert alert-danger mt-3">{{errorNotes}}</div>
+
+            </form>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="note-preview markdown-body p-3" ng-bind-html="html"></div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    </div>
+</div>
+<div class="note-empty d-flex justify-content-center align-items-center" ng-show="!activeViewNote" >
+    <p class="d-flex text-white-50 text-center ">"Sélectionner une note"</p>
+</div>

@@ -1,0 +1,61 @@
+/*
+    @import "../../../assets/css/common/theme.css";
+*/
+
+
+/*******************
+  note-categories
+********************/
+
+.note-categories {
+    width: 100%;
+    min-width: 150px;
+    max-width: 200px;
+    height: calc(100vh - 57px);
+    overflow: auto;
+    background-color: var(--color-dark-h);
+    border-right: 1px solid black;
+}
+
+
+/************
+   spinner
+*************/
+.spinner-category-notes {
+    height: calc(100vh - 120px);
+    align-items: center;
+}
+
+/**************
+  button link
+***************/
+.btn-link, .btn-link:focus, .btn-link:visited, .btn-link.focus {
+    outline:none;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+    opacity: .6;
+    outline:none
+}
+
+/**************
+  button cat
+***************/
+.btn-cat {
+    cursor: pointer;
+}
+
+.btn-cat:hover {
+    opacity: 0.6;
+}
+
+
+/**************
+  button active
+***************/
+.active-category {
+    border-right: 3px solid white;
+    box-sizing: border-box;
+}

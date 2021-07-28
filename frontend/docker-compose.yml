@@ -1,0 +1,7 @@
+client:
+  container_name: angular-project-appnote
+  restart: always
+  build: .
+  ports:
+    - "4201:8080"
+

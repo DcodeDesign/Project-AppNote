@@ -1,0 +1,28 @@
+:root{
+    --color-dark: #2d2f34 !important;
+    --color-dark-h: #343a40 !important;
+    --color-dark-m: #3E454D !important;
+    --color-dark-l: #727F8C !important;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    background-color: var(--color-dark);
+}
+
+.loading {
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.loading-img {
+    height:80px;
+    width:80px;
+}
