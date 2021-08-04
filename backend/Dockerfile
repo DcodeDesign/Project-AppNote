@@ -1,6 +1,9 @@
 FROM node
 
+RUN mkdir /express
 WORKDIR /express
+
+ENV PATH /express/node_modules/ .bin:$PATH
 
 COPY package.json /express/
 
